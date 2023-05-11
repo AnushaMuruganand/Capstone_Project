@@ -1,0 +1,22 @@
+.Navigation {
+  background: url("https://wallpaperaccess.com/full/5547770.jpg");
+  background-size:cover;
+  border: 2px solid #d30c0c20;
+  font-style: oblique;
+  font-weight: bold;
+}
+
+.navbar-brand{
+ font-family: Lucida Grande, serif;
+ font-weight: bolder;
+}
+
+.nav-link.active {
+  font-weight: bolder;
+  color : black;
+}
+
+.nav-link:hover:not(.active){
+  background-color: #686868;
+  color: white;
+}

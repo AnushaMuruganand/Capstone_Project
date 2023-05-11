@@ -1,0 +1,26 @@
+.Homepage {
+  /* put around the vertical center of page */
+  height: calc(100vh - 250px);
+  display: block;
+  align-items: center;
+  margin-top: 50px;
+  font-style: oblique;
+}
+
+.Homepage-title{
+  font-weight: bolder;
+  background-image: linear-gradient(60deg, #5d07f1, #68a5d0);
+  background-clip: text;
+  color: transparent;
+  font-family: Lucida Grande, serif;
+}
+
+.sliderimg{
+  width: 100vw;
+  height:475px;
+  object-fit:cover;
+}
+
+.Homepage-description{
+  font-size: x-large;
+}

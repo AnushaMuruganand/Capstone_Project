@@ -1,0 +1,84 @@
+.Map {
+    display: flex;
+    font-style: oblique;
+    background: url("https://i.pinimg.com/originals/1c/e5/5f/1ce55fa41fd5f9e2c780119bb04ed4dd.png");
+}
+
+.Map_displayWeather{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+.displayWeather{
+    display: inline-block;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bolder;
+}
+
+.Map-buttons{
+    margin-top:11rem;
+}
+
+.buttons {    
+    background-color: initial;
+    background-image: linear-gradient(#c9a8ea 0, #ee62ce 100%);
+    border-radius: 100px;
+    border-style: none;
+    box-shadow: rgba(245, 244, 247, .25) 0 1px 1px inset;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-style: oblique;
+    font-family: Inter, sans-serif;
+    font-size: 15px;
+    font-weight: bolder;
+    height: 60px;
+    line-height: 60px;
+    margin-left: -4px;
+    outline: 0;
+    text-align: center;
+    transition: all .3s cubic-bezier(.05, .03, .35, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: bottom;
+    width: 170px;
+    text-decoration: none;
+}
+
+.buttons:hover {
+    opacity: .7;
+    color:black;
+}
+
+.back-button {    
+    background-color: initial;
+    background-image: linear-gradient(#c9a8ea 0, #ee62ce 100%);
+    border-radius: 100px;
+    border-style: none;
+    box-shadow: rgba(245, 244, 247, .25) 0 1px 1px inset;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-style: oblique;
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    font-weight: bolder;
+    height: 60px;
+    line-height: 60px;
+    margin-left: -4px;
+    outline: 0;
+    text-align: center;
+    transition: all .3s cubic-bezier(.05, .03, .35, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: bottom;
+    width: 100px;
+    text-decoration: none;
+}
+
+.back-button:hover {
+    color:black;
+    opacity: .7;
+}

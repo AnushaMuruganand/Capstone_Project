@@ -1,0 +1,46 @@
+.LoginForm {
+    /* put around the vertical center of page */
+    height: calc(100vh - 60px);
+    display: flex;
+    align-items: center;
+    font-style: oblique;
+    text-shadow: 1px 1px 2px rgb(108, 107, 107), 0 0 1em red, 0 0 0.2em blue;
+}
+
+.LoginForm-title{
+    font-size: 50px;
+}
+
+label{
+    font-size: 18px;
+    margin:10px;
+}
+
+.LoginForm-card{
+    background-color:rgba(255, 255, 255, 0.5);
+    padding: 20px 30px 20px 30px;
+}
+
+.LoginForm-button {
+    color: #fff;
+    padding: 15px 25px;
+    background-color: #8697f4;
+    background-image: radial-gradient(93% 87% at 87% 89%, rgba(0, 0, 0, 0.23) 0%, transparent 86.18%), radial-gradient(66% 66% at 26% 20%, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%);
+    box-shadow: inset -3px -3px 9px rgba(255, 255, 255, 0.25), inset 0px 3px 9px rgba(255, 255, 255, 0.3), inset 0px 1px 1px rgba(255, 255, 255, 0.6), inset 0px -8px 36px rgba(0, 0, 0, 0.3), inset 0px 1px 5px rgba(255, 255, 255, 0.6), 2px 19px 31px rgba(0, 0, 0, 0.2);
+    border-radius: 16px;
+    font-weight: bold;
+    font-size: 17px;
+  
+    border: 0;
+  
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  
+    cursor: pointer;
+    margin-top:20px;
+  }
+  
+  .LoginForm-button:hover{
+    color:black;
+  }

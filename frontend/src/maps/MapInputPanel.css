@@ -1,0 +1,57 @@
+.MapInputPanel{
+    display: flex;
+    background: url("https://www.shutterstock.com/image-photo/abstract-blurry-beautiful-colorful-background-260nw-434607514.jpg");
+    background-size: cover;
+    font-size: 10px;
+}
+
+.directionsContainer{
+    padding: 15px;
+    height: 500px;
+    overflow:auto;
+}
+
+#directionsItinerary{
+    font-size: 10px;
+}
+
+#myMap{
+    position:relative;
+    margin-left: 20px;
+    width:calc(100vw - 450px);
+    height:100vh;
+    float:left;
+}
+
+.Input-button{
+  background-color: #107fbb;
+  border-radius: 16px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 40px;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  outline: none;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.Input-button:hover,
+.Input-button:focus {
+  background-color: #6688b9;
+  color:black;
+}

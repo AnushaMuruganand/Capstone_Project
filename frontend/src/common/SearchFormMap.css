@@ -1,0 +1,35 @@
+.SearchForm{
+  width:250px;
+}
+
+input:focus {
+  box-shadow: none;
+  border-color: #ced4da;
+}
+
+.SearchForm datalist {
+  position: absolute;
+  background-color:rgba(255, 255, 255);
+  border: 1px solid rgb(220, 219, 219);
+  border-radius: 0 0 30px 30px;
+  border-top: none;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  padding: 5px;
+  max-height: 10rem;
+  overflow-y: auto;
+}
+
+.SearchForm option {
+  background-color: white;
+  padding: 4px;
+  margin-bottom: 1px;
+  cursor: pointer;
+}
+
+.SearchForm option:hover,  .active{
+  background-color: rgb(237, 236, 236);
+}
+
+.close{
+  cursor :pointer;
+}

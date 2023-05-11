@@ -1,0 +1,21 @@
+.customInfobox {
+    padding: 2em;
+    border: 1px solid #ccc;
+    display: block;
+    width: 250px;
+    height: 320px;
+    margin: -1px 0 0 -1px;
+    color: #999;
+    background: linear-gradient(
+        white, white 50%, #333 50%, #333
+    );
+    animation: up-bump 0.4s ease;
+    font: 1em "Lucida Grande", serif;
+    font-weight: 400;
+}
+
+.customInfobox .title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
