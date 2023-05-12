@@ -7,7 +7,7 @@ import "./WeatherFullDetails.css";
  *
  */
 
-function WeatherForecast({ forecast }) {
+function WeatherForecast({ forecast, degree }) {
 
     // Function to get the day of the week for the date
     function dateDay(date) {
@@ -28,8 +28,16 @@ function WeatherForecast({ forecast }) {
             {forecast.map((days, i) => {
                         
                 const day = dateDay(days.date);
-                const maxTemp = Math.round(days.day.maxtemp_c);
-                const minTemp = Math.round(days.day.mintemp_c);
+
+                let maxTemp, minTemp;
+                if (degree === "celcius") {
+                    maxTemp = `${Math.round(days.day.maxtemp_c)}°C`;
+                    minTemp = `${Math.round(days.day.mintemp_c)}°C`;
+                }
+                else {
+                    maxTemp = `${Math.round(days.day.maxtemp_f)}°F`;
+                    minTemp = `${Math.round(days.day.mintemp_f)}°F`;
+                }
                 const weatherIcon = days.day.condition.icon;
    
                 return (
@@ -37,13 +45,13 @@ function WeatherForecast({ forecast }) {
                         <b>
                             {day}
                             &nbsp;&nbsp;
-                            <img alt="" style={{ width: "25px", height: "25px" }} src={weatherIcon} />
+                            <img alt="" style={{ width: "35px", height: "35px" }} src={weatherIcon} />
                             &nbsp;&nbsp;      
                             <b>L:</b>
-                            {minTemp}°C
+                            {minTemp}
                             &nbsp;&nbsp;
                             <b>H:</b>
-                            {maxTemp}°C
+                            {maxTemp}
                         </b>
                     </div>
                 );

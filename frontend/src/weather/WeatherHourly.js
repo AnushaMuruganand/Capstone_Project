@@ -7,7 +7,7 @@ import "./WeatherFullDetails.css";
  *
  */
 
-function WeatherHourly({ hourly }) {
+function WeatherHourly({ hourly, degree }) {
 
     // Function to display time as a 12 hour format
     function dateTime(hour){
@@ -28,14 +28,22 @@ function WeatherHourly({ hourly }) {
                        
                 const hour = dateTime(time);
                 const weatherIcon = hours.condition.icon;
-                const temp = Math.round(hours.temp_c);
+
+                let temp;
+                if (degree === "celcius") {
+                    temp = `${Math.round(hours.temp_c)}°C`;
+                }
+                else {
+                    temp = `${Math.round(hours.temp_f)}°F`;
+                }
+                
                 return (
                     <div className="WeatherDetail_Hours_EachDiv" key={i} style={{ fontSize: "15px" }}>
                         <b>
                             {hour}
-                            <img alt="" style={{ width: "25px", height: "25px" }} src={weatherIcon} />
+                            <img alt="" style={{ width: "35px", height: "35px" }} src={weatherIcon} />
                             <br />
-                            {temp}°C
+                            {temp}
                         </b>
                     </div>
                 );

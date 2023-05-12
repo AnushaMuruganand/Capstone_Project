@@ -13,7 +13,7 @@ import WeatherForecast from "./WeatherForecast";
  * WeatherCard -> WeatherFullDetails
  */
 
-function WeatherFullDetails({ weatherDetails }) {
+function WeatherFullDetails({ weatherDetails, degree }) {
 
     let hourly = weatherDetails.forecast.forecastday[0].hour;
     let forecast = weatherDetails.forecast.forecastday;
@@ -52,11 +52,9 @@ function WeatherFullDetails({ weatherDetails }) {
         textColor = "black";
     }
 
-    return (
-        <div className="WeatherDetail card text-center" style={{
-            backgroundImage: `url(${bgImage})`, backgroundSize:"cover", color:`${textColor}`}}>
-            <div className="WeatherDetail_Body card-body">
-                <h3 className="card-title">{weatherDetails.location}</h3>
+    function displayCelciusCard() {
+        return (
+            <>
                 <h2>{Math.round(weatherDetails.current.temp_c)}°C</h2>
                 {weatherDetails.current.condition.text}
                 <p>
@@ -66,6 +64,35 @@ function WeatherFullDetails({ weatherDetails }) {
                     <b>L:</b>
                     {Math.round(weatherDetails.forecast.forecastday[0].day.mintemp_c)}°C
                 </p>
+            </>
+        );
+    }
+
+    function displayFarenheitCard() {
+        return (
+            <>
+                <h2>{Math.round(weatherDetails.current.temp_f)}°F</h2>
+                {weatherDetails.current.condition.text}
+                <p>
+                    <b>H:</b>
+                    {Math.round(weatherDetails.forecast.forecastday[0].day.maxtemp_f)}°F
+                    &nbsp;&nbsp;
+                    <b>L:</b>
+                    {Math.round(weatherDetails.forecast.forecastday[0].day.mintemp_f)}°F
+                </p>
+            </>
+        );
+    }
+
+    return (
+        <div className="WeatherDetail card text-center" style={{
+            backgroundImage: `url(${bgImage})`, backgroundSize:"cover", color:`${textColor}`}}>
+            <div className="WeatherDetail_Body card-body">
+                <h3 className="card-title">{weatherDetails.location}</h3>
+                {degree === "celcius" ?
+                        displayCelciusCard()
+                        : displayFarenheitCard()
+                }
 
                 {/* Sunrise And sunset Time */}
                 <WeatherSun sunriseTime={sunriseTime} sunsetTime={sunsetTime} />
@@ -79,10 +106,10 @@ function WeatherFullDetails({ weatherDetails }) {
                 <br />
 
                 {/* Hourly weather report for the current day */}
-                <WeatherHourly hourly={hourly}/>
+                <WeatherHourly hourly={hourly} degree={degree} />
 
                 {/* Forecast weather for a week */}
-                <WeatherForecast forecast={forecast} />
+                <WeatherForecast forecast={forecast} degree={degree} />
             
             </div>
             <br/>

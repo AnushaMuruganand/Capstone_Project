@@ -8,6 +8,7 @@ import SearchFormWeather from "../common/SearchFormWeather";
 import WeatherCard from "./WeatherCard";
 import WeatherFullDetails from "./WeatherFullDetails";
 import UserContext from "../auth/UserContext";
+import WeatherDegreeToggle from "./WeatherDegreeToggle";
 
 /** Show page with the weather, search bar.
  *
@@ -26,6 +27,7 @@ function WeatherSearch() {
     const [weatherDetails, setWeatherDetails] = useState(null);
     const [clicked, setClicked] = useState(false);
     const [userWeatherDetails, setUserWeatherDetails] = useState([]);
+    const [degree, setDegree] = useState("celcius");
     
     useEffect(() => {
         if(currentUser) getUserWeather();  
@@ -94,13 +96,24 @@ function WeatherSearch() {
         );
     }
 
+    function weatherDegree(degree) {
+        setDegree(degree);
+    }
+
     if (currentUser) {
         if (clicked) {
             return (
                 <div className="container mt-5">
-                    <WeatherFullDetails weatherDetails={weatherDetails} />  
+                    <div className="degreeToggle">
+                        Toggle between CELCIUS and FARENHEIT DEGREE
+                        <br /><br />
+                            
+                        <WeatherDegreeToggle weatherDegree={weatherDegree} />
+                    </div>
+                    <br/>
+                    <WeatherFullDetails weatherDetails={weatherDetails} degree={degree} />
                 </div>
-            )
+            );
         }
         else {
             return (
@@ -109,14 +122,22 @@ function WeatherSearch() {
                     <div>
                         <SearchFormWeather searchFor={search} />
                     </div>
-                
-                    <div className="UserWeather" style={{marginTop:"11em"}}>
-                        {userWeatherDetails.map(weatherDetail => (
-                            <WeatherCard weatherDetails={weatherDetail} showFullDetails={showFullDetails} />
-                        ))}
-                    
+
+                    <div  style={{ marginTop: "11em"}}>
+                        <div className="degreeToggle">
+                            Toggle between CELCIUS and FARENHEIT DEGREE
+                            <br /><br />
+                            
+                            <WeatherDegreeToggle weatherDegree={weatherDegree} />
+                        </div>
+                        <br/>
+                        <div className="UserWeather">
+                            {userWeatherDetails.map(weatherDetail => (
+                                <WeatherCard weatherDetails={weatherDetail} showFullDetails={showFullDetails} degree={degree} />
+                            ))}
+                        </div>
                     </div>
-                </div> 
+                </div>
             );
         }
     }
@@ -139,7 +160,14 @@ function WeatherSearch() {
                 
                     <div style={{marginTop:"11em"}}>
                         {weatherDetails ?
-                            <WeatherCard weatherDetails={weatherDetails} showFullDetails={showFullDetails} /> : showSlides()}
+                            <>
+                                <div>
+                                    <WeatherDegreeToggle weatherDegree={weatherDegree} />
+                                </div>
+                                <WeatherCard weatherDetails={weatherDetails} showFullDetails={showFullDetails} degree={degree} />
+                            </>
+                            : showSlides()
+                        }
                     </div>
                 </div>
             );

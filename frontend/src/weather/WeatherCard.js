@@ -8,7 +8,7 @@ import "./WeatherCard.css";
  * WeatherSearch -> WeatherCard
  */
 
-function WeatherCard({ weatherDetails, showFullDetails }) {
+function WeatherCard({ weatherDetails, showFullDetails, degree }) {
 
     const weatherCondition = weatherDetails.current.condition.text.toLowerCase();
     
@@ -41,23 +41,53 @@ function WeatherCard({ weatherDetails, showFullDetails }) {
         textColor = "black";
     }
 
+    function displayCelciusCard() {
+        return (
+            <div className="WeatherCard_Body card-body" style={{
+                backgroundImage: `url(${bgImage})`, backgroundSize: "cover", color: `${textColor}`
+            }}>
+                <h3 className="card-title">{weatherDetails.location}</h3>
+                <h2>{Math.round(weatherDetails.current.temp_c)}°C</h2>
+                {weatherDetails.current.condition.text}
+                <p>
+                    <b>H:</b>
+                    {Math.round(weatherDetails.forecast.forecastday[0].day.maxtemp_c)}°C
+                    &nbsp;&nbsp;
+                    <b>L:</b>
+                    {Math.round(weatherDetails.forecast.forecastday[0].day.mintemp_c)}°C
+                </p>
+            </div>
+        );
+    }
+
+    function displayFarenheitCard() {
+        return (
+            <div className="WeatherCard_Body card-body" style={{
+                backgroundImage: `url(${bgImage})`, backgroundSize: "cover", color: `${textColor}`
+            }}>
+                <h3 className="card-title">{weatherDetails.location}</h3>
+                <h2>{Math.round(weatherDetails.current.temp_f)}°F</h2>
+                {weatherDetails.current.condition.text}
+                <p>
+                    <b>H:</b>
+                    {Math.round(weatherDetails.forecast.forecastday[0].day.maxtemp_f)}°F
+                    &nbsp;&nbsp;
+                    <b>L:</b>
+                    {Math.round(weatherDetails.forecast.forecastday[0].day.mintemp_f)}°F
+                </p>
+            </div>
+        );
+    }
+
     return (
         <div className="WeatherCard">
+
             <div className="WeatherCard_Card card text-center" >
                 <div onClick={() => { showFullDetails(weatherDetails); }}>
-                    <div className="WeatherCard_Body card-body" style={{
-                backgroundImage: `url(${bgImage})`, backgroundSize:"cover", color:`${textColor}`}}>
-                        <h3 className="card-title">{weatherDetails.location}</h3>
-                        <h2>{Math.round(weatherDetails.current.temp_c)}°C</h2>
-                        {weatherDetails.current.condition.text}
-                        <p>
-                            <b>H:</b>
-                            {Math.round(weatherDetails.forecast.forecastday[0].day.maxtemp_c)}°C
-                            &nbsp;&nbsp;
-                            <b>L:</b>
-                            {Math.round(weatherDetails.forecast.forecastday[0].day.mintemp_c)}°C
-                        </p>
-                    </div>
+                    {degree === "celcius" ?
+                        displayCelciusCard()
+                        : displayFarenheitCard()
+                    }
                 </div>
             </div>
         </div>

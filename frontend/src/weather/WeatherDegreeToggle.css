@@ -1,0 +1,9 @@
+.toggleButton{
+    width:100px;
+    height: 55px;
+    display: block;
+    margin:auto;
+    font-weight: bold;
+    font-size: 20px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
