@@ -1,5 +1,5 @@
 [[redirects]]
-    to="https://stellular-biscuit-f43edb.netlify.app/:splat"
+    to="/:splat"
     from="/*"
     status=200
     force = true
