@@ -15,7 +15,7 @@ function MapInputPanelView() {
         window.loadMapScenario = () => InitMap();
     
         const script = document.createElement("script");
-        script.src = "http://www.bing.com/api/maps/mapcontrol?callback=loadMapScenario&key=AmqtVAecbzoYK2CSsA5JCLhrcI3ia_2skrn2_KJkauiqDTAhuxJM13rQCKRl7Nkc";
+        script.src = "https://www.bing.com/api/maps/mapcontrol?callback=loadMapScenario&key=AmqtVAecbzoYK2CSsA5JCLhrcI3ia_2skrn2_KJkauiqDTAhuxJM13rQCKRl7Nkc";
         script.async = true;
         script.defer = true;
     
