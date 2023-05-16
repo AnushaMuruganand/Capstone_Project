@@ -3,7 +3,6 @@
 /** Express app for map and weather report. */
 
 const express = require("express");
-const serverless = require("serverless-http");
 const cors = require("cors");
 
 const { NotFoundError } = require("./expressError");
@@ -44,4 +43,3 @@ app.use(function (err, req, res, next) {
 });
 
 module.exports = app;
-module.exports.handler = serverless(app);
