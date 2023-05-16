@@ -1,10 +1,7 @@
-[[redirects]]
-    to="/:splat"
-    from="/*"
-    status=200
-    force = true
+[build]
+    functions="Backend"
 
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+    to="/.netlify/functions/*/:splat"
+    from="/*"
+    status=200 
