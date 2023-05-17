@@ -99,7 +99,7 @@ class User {
       first_name: `${firstName}`,
       last_name: `${lastName}`,
       email: `${email}`
-    });
+    }).returning("username", "first_name".as("firstName"), "last_name".as("lastName"),"email" );
 
     console.log("SAVED USER :", result);
 
