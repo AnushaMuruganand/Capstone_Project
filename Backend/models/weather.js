@@ -67,7 +67,7 @@ class Weather {
 
         const savedLocation = preCheckLocation;
 
-        if (savedLocation.length!==0) {
+        if (savedLocation.length==0) {
             // const result = await db.query(
             //     `INSERT INTO weather_recents
             //     (city, region, country) VALUES ($1, $2, $3) RETURNING city`, [city, region, country]
@@ -114,7 +114,7 @@ class Weather {
 
         const savedLocation = preCheckLocation;
 
-        if (savedLocation.length!==0) {
+        if (savedLocation.length==0) {
             // const result = await db.query(
             //     `INSERT INTO weather_reports
             //     (user_id, city, region, country) VALUES ($1, $2, $3, $4) RETURNING user_id, city`, [userID, city, region, country]
