@@ -42,8 +42,10 @@ class Weather {
 
         const result = await db.select(
             "city", "region", "country").from("weather_recents").orderBy("id", "desc").limit(5);
+        
+        console.log("GET RECENTS WEATHER :", result);
 
-        const locations = result.rows;
+        const locations = result;
     
         return locations;
     }
@@ -63,9 +65,9 @@ class Weather {
                 country: `${country}`
             });
 
-        const savedLocation = preCheckLocation.rows[0];
+        const savedLocation = preCheckLocation;
 
-        if (!savedLocation) {
+        if (savedLocation.length!==0) {
             // const result = await db.query(
             //     `INSERT INTO weather_recents
             //     (city, region, country) VALUES ($1, $2, $3) RETURNING city`, [city, region, country]
@@ -77,7 +79,9 @@ class Weather {
                 country: `${country}`
             }).returning(["city", "region", "country"]);
 
-            return result.rows[0];
+            console.log("SAVED WEATHER :", result)
+
+            return result[0];
         }
         else return "FOUND RESULT";
     }
@@ -92,7 +96,7 @@ class Weather {
 
         const user = await db.select("id").from("users").where("username", `${username}`);
 
-        const userID = user.rows[0].id;
+        const userID = user[0].id;
 
         // const preCheckLocation = await db.query(
         //     `SELECT city,region,country
@@ -108,9 +112,9 @@ class Weather {
                 user_id:`${userID}`
             })
 
-        const savedLocation = preCheckLocation.rows[0];
+        const savedLocation = preCheckLocation;
 
-        if (!savedLocation) {
+        if (savedLocation.length!==0) {
             // const result = await db.query(
             //     `INSERT INTO weather_reports
             //     (user_id, city, region, country) VALUES ($1, $2, $3, $4) RETURNING user_id, city`, [userID, city, region, country]
@@ -122,8 +126,10 @@ class Weather {
                 region: `${region}`,
                 country: `${country}`
             }).returning(["user_id", "city"]);
+
+            console.log("SAVED USER WEATHER :", result)
             
-            return result.rows[0];
+            return result[0];
         }
         else {
             return "ALREADY PRESENT";
@@ -139,7 +145,7 @@ class Weather {
 
         const user = await db.select("id").from("users").where("username", `${username}`);
 
-        const userID = user.rows[0].id;
+        const userID = user[0].id;
 
         // const result = await db.query(
         //     `SELECT city,region,country
@@ -148,9 +154,11 @@ class Weather {
         // );
         
         const result = await db.select(
-            "city", "region", "country").from("weather_reports").where("user_id",`${userID}`).orderBy("id", "desc");
+            "city", "region", "country").from("weather_reports").where("user_id", `${userID}`).orderBy("id", "desc");
+        
+        console.log("GET USER WEATHER :", result);
 
-        const locations = result.rows;
+        const locations = result;
 
         return locations;
     }

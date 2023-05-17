@@ -35,9 +35,11 @@ class User {
 
     const result = await db.select("username", "password", "firstName", "lastName", "email").from("users").where("username", `${username}`);
 
-    const user = result.rows[0];
+    console.log("AUTHENTICATE USER :", result);
 
-    if (user) {
+    const user = result[0];
+
+    if (user.length!==0) {
       // compare hashed password to a new hash from password
       const isValid = await bcrypt.compare(password, user.password);
       if (isValid === true) {
@@ -99,11 +101,11 @@ class User {
       firstName: `${firstName}`,
       lastName: `${lastName}`,
       email: `${email}`
-    }).returning("username", "firstName", "lastName", "email");
+    }).returning(["username", "firstName", "lastName", "email"]);
 
     console.log("SAVED USER :", result);
 
-    const user = result.rows[0];
+    const user = result;[0]
 
     return user;
   }
@@ -128,11 +130,11 @@ class User {
 
     const userRes = await db.select("username", "firstName", "lastName", "email").from("users").where("username", `${username}`);
 
-    console.log("RESULT :", userRes);
+    console.log("RESULT og get:", userRes);
 
-    const user = userRes.rows[0];
+    const user = userRes[0];
 
-    if (!user) throw new NotFoundError(`No user: ${username}`);
+    if (user.length==0) throw new NotFoundError(`No user: ${username}`);
     return user;
   }
 }
