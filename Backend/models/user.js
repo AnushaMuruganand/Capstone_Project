@@ -69,7 +69,7 @@ class User {
 
     console.log("DUPLICATE CHECK :", duplicateCheck);
 
-    if (duplicateCheck.rows[0]) {
+    if (duplicateCheck) {
       throw new BadRequestError(`Duplicate username: ${username}`);
     }
 
