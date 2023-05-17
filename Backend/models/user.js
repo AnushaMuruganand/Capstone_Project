@@ -39,7 +39,7 @@ class User {
 
     const user = result[0];
 
-    if (user.length!==0) {
+    if (!user) {
       // compare hashed password to a new hash from password
       const isValid = await bcrypt.compare(password, user.password);
       if (isValid === true) {
@@ -105,7 +105,7 @@ class User {
 
     console.log("SAVED USER :", result);
 
-    const user = result;[0]
+    const user = result[0]
 
     return user;
   }
@@ -134,7 +134,7 @@ class User {
 
     const user = userRes[0];
 
-    if (user.length==0) throw new NotFoundError(`No user: ${username}`);
+    if (!user) throw new NotFoundError(`No user: ${username}`);
     return user;
   }
 }
