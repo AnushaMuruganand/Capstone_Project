@@ -58,7 +58,7 @@ class Weather {
         //     WHERE city = $1 AND region=$2 AND country = $3`, [city, region, country]
         // );
 
-        const preCheckLocation = db.select(
+        const preCheckLocation = await db.select(
             "city", "region", "country").from("weather_recents").where({
                 city: `${city}`,
                 region: `${region}`,
