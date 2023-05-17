@@ -8,8 +8,8 @@ const db = require('../db');
             table.increments("id").primary();
             table.string('username').unique();
             table.string("password").notNullable();
-            table.string("first_name").notNullable();
-            table.string("last_name").notNullable();
+            table.string("firstName").notNullable();
+            table.string("lastName").notNullable();
             table.string("email").notNullable();
         });
         

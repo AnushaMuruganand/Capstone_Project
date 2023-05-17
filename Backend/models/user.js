@@ -33,7 +33,7 @@ class User {
     //     [username],
     // );
 
-    const result = await db.select("username", "password", "first_name".as("firstName"), "last_name".as("lastName"), "email").from("users").where("username", `${username}`);
+    const result = await db.select("username", "password", "firstName", "lastName", "email").from("users").where("username", `${username}`);
 
     const user = result.rows[0];
 
@@ -96,10 +96,10 @@ class User {
     const result = await db("users").insert({
       username: `${username}`,
       password: `${hashedPassword}`,
-      first_name: `${firstName}`,
-      last_name: `${lastName}`,
+      firstName: `${firstName}`,
+      lastName: `${lastName}`,
       email: `${email}`
-    }).returning("username", "first_name".as("firstName"), "last_name".as("lastName"),"email" );
+    }).returning("username", "firstName", "lastName", "email");
 
     console.log("SAVED USER :", result);
 
@@ -126,7 +126,7 @@ class User {
     //     [username],
     // );
 
-    const userRes = await db.select("username", "first_name".as("firstName"), "last_name".as("lastName"), "email").from("users").where("username", `${username}`);
+    const userRes = await db.select("username", "firstName", "lastName", "email").from("users").where("username", `${username}`);
 
     console.log("RESULT :", userRes);
 
