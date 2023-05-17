@@ -1,10 +1,11 @@
 const db = require('../db');
 
 (async () => {
-    try {
-        await db.schema.dropTableIfExists('users');
+    try {
+
+        await db.schema.dropTableIfExists('users')
         await db.schema.withSchema('public').createTable('users', (table) => {
-            table.integer("id").primary();
+            table.increments("id").primary();
             table.string('username').unique();
             table.string("password").notNullable();
             table.string("first_name").notNullable();
@@ -14,7 +15,7 @@ const db = require('../db');
         
         await db.schema.dropTableIfExists('weather_reports');
         await db.schema.withSchema('public').createTable('weather_reports', (table) => {
-            table.integer("id").primary();
+            table.increments("id").primary();
             table.integer("user_id").references("id").inTable("users").onDelete("CASCADE");
             table.string("city");
             table.string("region");
@@ -23,7 +24,7 @@ const db = require('../db');
 
         await db.schema.dropTableIfExists('weather_recents');
         await db.schema.withSchema('public').createTable('weather_recents', (table) => {
-            table.integer("id").primary();
+            table.increments("id").primary();
             table.string("city");
             table.string("region");
             table.string("country");
@@ -31,7 +32,7 @@ const db = require('../db');
 
         await db.schema.dropTableIfExists('location_recents');
         await db.schema.withSchema('public').createTable('location_recents', (table) => {
-            table.integer("id").primary();
+            table.increments("id").primary();
             table.string("address");
         });
 
