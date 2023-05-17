@@ -41,13 +41,17 @@ class Map {
 
         const savedAddress = preCheckAddress;
 
-        if (savedAddress.length==0) {
+        console.log("SAVED ADDRESS :", savedAddress);
+
+        if (savedAddress.length===0) {
             // const result = await db.query(
             //     `INSERT INTO location_recents
             //     (address) VALUES ($1)`, [address]
             // );
 
-            const result = await db("location_recents").insert("address", `${address}`);
+            const result = await db("location_recents").insert("address", `${address}`).returning(["address"]);
+
+            console.log("RESULT :", result);
         }
     }
 

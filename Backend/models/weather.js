@@ -65,7 +65,7 @@ class Weather {
 
         const savedLocation = preCheckLocation;
 
-        if (savedLocation.length==0) {
+        if (savedLocation.length===0) {
             // const result = await db.query(
             //     `INSERT INTO weather_recents
             //     (city, region, country) VALUES ($1, $2, $3) RETURNING city`, [city, region, country]
@@ -100,17 +100,17 @@ class Weather {
         //     WHERE city = $1 AND region=$2 AND country = $3 AND user_id = $4`, [city, region, country, userID]
         // );
 
-        const preCheckLocation=await db.select(
+        const preCheckLocation = await db.select(
             "city", "region", "country").from("weather_reports").where({
                 city: `${city}`,
                 region: `${region}`,
                 country: `${country}`,
-                user_id:`${userID}`
-            })
+                user_id: `${userID}`
+            });
 
         const savedLocation = preCheckLocation;
 
-        if (savedLocation.length==0) {
+        if (savedLocation.length===0) {
             // const result = await db.query(
             //     `INSERT INTO weather_reports
             //     (user_id, city, region, country) VALUES ($1, $2, $3, $4) RETURNING user_id, city`, [userID, city, region, country]
