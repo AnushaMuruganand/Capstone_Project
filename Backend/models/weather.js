@@ -149,6 +149,8 @@ class Weather {
 
         const userID = user[0].id;
 
+        console.log("USER ID :", userID);
+
 
         // const result = await db.query(
         //     `SELECT city,region,country
