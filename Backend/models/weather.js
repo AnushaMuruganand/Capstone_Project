@@ -42,8 +42,6 @@ class Weather {
 
         const result = await db.select(
             "city", "region", "country").from("weather_recents").orderBy("id", "desc").limit(5);
-        
-        console.log("GET RECENTS WEATHER :", result);
 
         const locations = result;
     
@@ -67,8 +65,6 @@ class Weather {
 
         const savedLocation = preCheckLocation;
 
-        console.log("SAVED LOCATION WEATHER :", savedLocation)
-
         if (savedLocation.length==0) {
             // const result = await db.query(
             //     `INSERT INTO weather_recents
@@ -80,8 +76,6 @@ class Weather {
                 region: `${region}`,
                 country: `${country}`
             }).returning(["city"]);
-
-            console.log("SAVED WEATHER :", result)
 
             return result[0];
         }
@@ -128,8 +122,6 @@ class Weather {
                 region: `${region}`,
                 country: `${country}`
             }).returning(["user_id", "city"]);
-
-            console.log("SAVED USER WEATHER :", result)
             
             return result[0];
         }
@@ -147,11 +139,7 @@ class Weather {
 
         const user = await db.select("id").from("users").where("username", `${username}`);
 
-        console.log("USER :", user);
-
         const userID = user[0].id;
-
-        console.log("USER ID :", userID);
 
 
         // const result = await db.query(
@@ -162,8 +150,6 @@ class Weather {
         
         const result = await db.select(
             "city", "region", "country").from("weather_reports").where("user_id", `${userID}`).orderBy("id", "desc");
-        
-        console.log("GET USER WEATHER :", result);
 
         const locations = result;
 

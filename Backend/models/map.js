@@ -39,9 +39,9 @@ class Map {
 
         const preCheckAddress = await db.select("address").from("location_recents").where("address", `${address}`);
 
-        const savedAddress = preCheckAddress[0];
+        const savedAddress = preCheckAddress;
 
-        if (savedAddress.length!==0) {
+        if (savedAddress.length==0) {
             // const result = await db.query(
             //     `INSERT INTO location_recents
             //     (address) VALUES ($1)`, [address]
@@ -60,8 +60,6 @@ class Map {
         // );
 
         const result = await db.select("address").from("location_recents").orderBy("id", "desc").limit(5);
-
-        console.log("get recent map :", result);
 
         const addresses = result;
     

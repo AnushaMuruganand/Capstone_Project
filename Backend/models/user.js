@@ -35,8 +35,6 @@ class User {
 
     const result = await db.select("username", "password", "firstName", "lastName", "email").from("users").where("username", `${username}`);
 
-    console.log("AUTHENTICATE USER :", result);
-
     const user = result[0];
 
     if (user) {
@@ -68,8 +66,6 @@ class User {
     // );
 
     const duplicateCheck = await db.select("username").from("users").where("username", `${username}`);
-
-    console.log("DUPLICATE CHECK :", duplicateCheck);
 
     if (duplicateCheck.length!==0) {
       throw new BadRequestError(`Duplicate username: ${username}`);
@@ -103,8 +99,6 @@ class User {
       email: `${email}`
     }).returning(["username", "firstName", "lastName", "email"]);
 
-    console.log("SAVED USER :", result);
-
     const user = result[0]
 
     return user;
@@ -129,8 +123,6 @@ class User {
     // );
 
     const userRes = await db.select("username", "firstName", "lastName", "email").from("users").where("username", `${username}`);
-
-    console.log("RESULT og get:", userRes);
 
     const user = userRes[0];
 
