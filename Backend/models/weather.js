@@ -67,6 +67,8 @@ class Weather {
 
         const savedLocation = preCheckLocation;
 
+        console.log("SAVED LOCATION WEATHER :", savedLocation)
+
         if (savedLocation.length==0) {
             // const result = await db.query(
             //     `INSERT INTO weather_recents
@@ -77,7 +79,7 @@ class Weather {
                 city: `${city}`,
                 region: `${region}`,
                 country: `${country}`
-            }).returning(["city", "region", "country"]);
+            }).returning(["city"]);
 
             console.log("SAVED WEATHER :", result)
 
