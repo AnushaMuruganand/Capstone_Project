@@ -15,7 +15,7 @@ function getDatabaseUri() {
   //     ? "postgresql://test_user:mypassword@localhost/map_weather_test"
   //     : process.env.DATABASE_URL || "postgresql://test_user:mypassword@localhost/map_weather";
 
-  return process.env.DATABASE_URL;
+  return "postgresql://test_user:Br3tOUdIhM5FyeI3M04G17SAcjn0scpW@dpg-chi02bgrddldrovr4bn0-a/map_weather";
 }
 
 // Speed up bcrypt during tests, since the algorithm safety isn't being tested
