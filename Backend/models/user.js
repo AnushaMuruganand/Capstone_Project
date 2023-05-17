@@ -22,16 +22,18 @@ class User {
    **/
   static async authenticate(username, password) {
     // try to find the user first
-    const result = await db.query(
-          `SELECT username,
-                  password,
-                  first_name AS "firstName",
-                  last_name AS "lastName",
-                  email
-           FROM users
-           WHERE username = $1`,
-        [username],
-    );
+    // const result = await db.query(
+    //       `SELECT username,
+    //               password,
+    //               first_name AS "firstName",
+    //               last_name AS "lastName",
+    //               email
+    //        FROM users
+    //        WHERE username = $1`,
+    //     [username],
+    // );
+
+    const result = await db.select("username", "password", "first_name".as("firstName"), "last_name".as("lastName"), "email").from("users").where("username", `${username}`);
 
     const user = result.rows[0];
 
@@ -56,12 +58,14 @@ class User {
 
   static async register(
       { username, password, firstName, lastName, email}) {
-    const duplicateCheck = await db.query(
-          `SELECT username
-           FROM users
-           WHERE username = $1`,
-        [username],
-    );
+    // const duplicateCheck = await db.query(
+    //       `SELECT username
+    //        FROM users
+    //        WHERE username = $1`,
+    //     [username],
+    // );
+
+    const duplicateCheck = await db.select("username").from("users").where("username", `${username}`);
 
     if (duplicateCheck.rows[0]) {
       throw new BadRequestError(`Duplicate username: ${username}`);
@@ -69,23 +73,31 @@ class User {
 
     const hashedPassword = await bcrypt.hash(password, BCRYPT_WORK_FACTOR);
 
-    const result = await db.query(
-          `INSERT INTO users
-           (username,
-            password,
-            first_name,
-            last_name,
-            email)
-           VALUES ($1, $2, $3, $4, $5)
-           RETURNING username, first_name AS "firstName", last_name AS "lastName", email`,
-        [
-          username,
-          hashedPassword,
-          firstName,
-          lastName,
-          email,
-        ],
-    );
+    // const result = await db.query(
+    //       `INSERT INTO users
+    //        (username,
+    //         password,
+    //         first_name,
+    //         last_name,
+    //         email)
+    //        VALUES ($1, $2, $3, $4, $5)
+    //        RETURNING username, first_name AS "firstName", last_name AS "lastName", email`,
+    //     [
+    //       username,
+    //       hashedPassword,
+    //       firstName,
+    //       lastName,
+    //       email,
+    //     ],
+    // );
+
+    const result = await db("users").insert({
+      username: `${username}`,
+      password: `${hashedPassword}`,
+      first_name: `${firstName}`,
+      last_name: `${lastName}`,
+      email:`${email}`
+    })
 
     const user = result.rows[0];
 
@@ -100,15 +112,17 @@ class User {
    **/
 
   static async get(username) {
-    const userRes = await db.query(
-          `SELECT username,
-                  first_name AS "firstName",
-                  last_name AS "lastName",
-                  email
-           FROM users
-           WHERE username = $1`,
-        [username],
-    );
+    // const userRes = await db.query(
+    //       `SELECT username,
+    //               first_name AS "firstName",
+    //               last_name AS "lastName",
+    //               email
+    //        FROM users
+    //        WHERE username = $1`,
+    //     [username],
+    // );
+
+    const userRes = await db.select("username", "first_name".as("firstName"), "last_name".as("lastName"), "email").from("users").where("username", `${username}`);
 
     const user = userRes.rows[0];
 

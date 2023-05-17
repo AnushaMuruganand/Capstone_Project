@@ -31,6 +31,6 @@ const db = knex({
     }
 });
   
-db.connect();
+// db.connect();
 
 module.exports = db;
