@@ -29,6 +29,8 @@ const db = knex({
         rejectUnauthorized: false
       }
     }
-  });
+});
+  
+db.connect();
 
 module.exports = db;
