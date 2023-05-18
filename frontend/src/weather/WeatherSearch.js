@@ -104,6 +104,11 @@ function WeatherSearch() {
         setDegree(degree);
     }
 
+    function push() {
+        setClicked(false);
+        history.push("/weather/search")
+    }
+
     if (currentUser) {
         if (clicked) {
             return (
@@ -115,7 +120,7 @@ function WeatherSearch() {
                         <WeatherDegreeToggle weatherDegree={weatherDegree} />
                     </div>
                     <br/>
-                    <WeatherFullDetails weatherDetails={weatherDetails} degree={degree} />
+                    <WeatherFullDetails weatherDetails={weatherDetails} degree={degree} push={push} />
                 </div>
             );
         }
@@ -150,7 +155,7 @@ function WeatherSearch() {
         if (clicked) {
             return (
                 <div className="container mt-5">
-                    <WeatherFullDetails weatherDetails={weatherDetails} />
+                    <WeatherFullDetails weatherDetails={weatherDetails} push={push} />
                 </div>
             )
         }

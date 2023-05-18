@@ -49,7 +49,7 @@ function Routes({login, signup}) {
                 </Route>
 
                 <Route exact path="/weather/search/detail">
-                    <WeatherFullDetails/>
+                    <Weather/>
                 </Route>
   
                 <Route exact path="/weather/login">

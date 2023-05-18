@@ -14,9 +14,8 @@ import { useHistory } from "react-router-dom";
  * WeatherCard -> WeatherFullDetails
  */
 
-function WeatherFullDetails({ weatherDetails, degree }) {
+function WeatherFullDetails({ weatherDetails, degree, push }) {
 
-    const history = useHistory();
     let hourly = weatherDetails.forecast.forecastday[0].hour;
     let forecast = weatherDetails.forecast.forecastday;
     const sunriseTime = weatherDetails.forecast.forecastday[0].astro.sunrise;
@@ -52,10 +51,6 @@ function WeatherFullDetails({ weatherDetails, degree }) {
     else if(weatherCondition.includes("snow") || weatherCondition.includes("sleet") || weatherCondition.includes("blizzard")){
         bgImage = "https://i.pinimg.com/originals/5c/a4/f9/5ca4f9770c06a62d5e1be3736b2540d6.gif";
         textColor = "black";
-    }
-
-    function push() {
-        history.push("/weather/search");
     }
 
     function displayCelciusCard() {
