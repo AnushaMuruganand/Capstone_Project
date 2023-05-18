@@ -9,6 +9,7 @@ import WeatherCard from "./WeatherCard";
 import WeatherFullDetails from "./WeatherFullDetails";
 import UserContext from "../auth/UserContext";
 import WeatherDegreeToggle from "./WeatherDegreeToggle";
+import { useHistory } from "react-router-dom";
 
 /** Show page with the weather, search bar.
  *
@@ -21,6 +22,8 @@ import WeatherDegreeToggle from "./WeatherDegreeToggle";
  */
 
 function WeatherSearch() {
+
+    const history = useHistory();
 
     const { currentUser } = useContext(UserContext);
 

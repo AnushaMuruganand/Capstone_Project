@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Map and Weather App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is my Capstone project for UMASS Global Software Engineering Bootcamp. This app provides an easy place to look up **Weather** of any location and addresses/calculate routes/restaurants on **Map**.
 
 ## Available Scripts
 
