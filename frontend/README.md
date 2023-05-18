@@ -2,7 +2,54 @@
 
 This is my Capstone project for UMASS Global Software Engineering Bootcamp. This app provides an easy place to look up **Weather** of any location and addresses/calculate routes/restaurants on **Map**.
 
-## Available Scripts
+## Deployed Site
+
+Click here -> [Map and Weather App](https://map-n-weather.netlify.app/)
+
+## APIs used
+
+This app makes heavy use of the 3 API's:
+   - **Bing Map API** -> https://learn.microsoft.com/en-us/bingmaps/rest-services/
+   - **Yelp API** for Restaurants -> https://docs.developer.yelp.com/docs/fusion-intro
+   - **Weather API** -> https://www.weatherapi.com/docs/
+  
+## Tools and Libraries
+
+   - [React](https://react.dev/): A JavaScript library for building user interfaces.
+   - [React-Bootstrap](https://react-bootstrap.github.io/): A library for using Bootstrap with React.
+   - [React Router](https://reactrouter.com/en/main): A collection of navigational components for building single-page applications with React.
+   - [Axios](https://axios-http.com/): A promise-based HTTP client for the browser and Node.js.
+   - [JWT-Decode](https://github.com/auth0/jwt-decode): A library for decoding JSON Web Tokens.
+   - [Font Awesome](https://fontawesome.com/): A popular icon library and toolkit.
+  
+## User Flow
+
+Users can navigate through **Map** pages and **Weather** pages without creating a User Account. However creating a User Account for **Weather** will allow users to look for previously searched location for quick reference. A user can look for Addresses/nearby Restaurants/Calculate Routes on **Map** and look for Locations/Signup/Login on **Weather**.
+
+  ### Map
+   - This page allows User to search for addresses and Map locates that address.
+   - User can look for nearby Restaurants and can change the view of the Map to look for restaurants on that location by clicking on the Restaurant button.
+   - User can calculate Routes by specifying the from and to destination by clicking on the Directions button.
+   - User can view the current date's Weather based on the user's location.
+   - On the Restaurants page, User can hover on the restaurant pushin to view restaurant details as a pop up window
+
+  ### Weather
+   - This page allows User to look for weather of a particular location.
+   - User can also create an account, so User can view the weather of all previously searched locations for quick access.
+   - Can toggle between Celcius and Fahrenheit Degree for viewing weather.
+   - User can click on weather card displayed for each searched locations, so Udser can view the complete weather details such as Sunrise/Sunset time, Hourly forecast, Max and Min Temperature, 3-Day Forecast.
+
+## Features Implemented
+    *This page includes a dynamic styling like Carousel
+    *Pop up window appears when hovered on restaurant pushpin
+    *Log in, log out auth
+    *Based on Weather condition of a particular location the weather card's background changes accordingly
+
+## Getting Started with Create React App
+
+This project was bootstrapped with Create React App.
+
+### Available Scripts
 
 In the project directory, you can run:
 
@@ -24,42 +71,3 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

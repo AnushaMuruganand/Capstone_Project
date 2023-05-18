@@ -74,7 +74,7 @@ router.post("/current", async function (req, res, next) {
 
 /** GET /weather/forecast:  {city name}=>{weather details}
  *
- * Returns weather details for a week and hourly weather of the current day for a particular city
+ * Returns complete weather details for a particular city
  */
 router.get("/forecast", async function (req, res, next) {
     try {

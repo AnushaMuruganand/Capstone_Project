@@ -6,7 +6,7 @@ const Map = require("../models/map");
 const express = require("express");
 const router = new express.Router();
 
-/** GET /maps/:  
+/** GET /maps/
  *
  * Returns top 5 list of addresses recently searched by user from the database 
  */
