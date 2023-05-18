@@ -87,6 +87,7 @@ function Map() {
     }
 
     function push() {
+        setRestaurants([]);
         history.push("/maps/search");
     }
 
