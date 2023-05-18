@@ -88,8 +88,8 @@ function WeatherSearch() {
             <AliceCarousel autoPlay infinite disableDotsControls
                 disableButtonsControls autoPlayInterval={1000}>
                 <img src="https://i.gifer.com/3c2.gif" className="sliderimg" alt="" />
-                <img src="https://thumbs.gfycat.com/ShabbyRipeAmericangoldfinch-size_restricted.gif" className="sliderimg" alt="" />
-                <img src="https://thumbs.gfycat.com/DenseEvilDoctorfish-max-1mb.gif" className="sliderimg" alt="" />
+                <img src="https://j.gifs.com/yAPMpG.gif" className="sliderimg" alt="" />
+                <img src="https://www.gifcen.com/wp-content/uploads/2021/03/fall-weather-gif-19.gif" className="sliderimg" alt="" />
                 <img src="https://media.tenor.com/ZAw_hz_GBBsAAAAd/rain.gif" className="sliderimg" alt="" />
                 <img src="https://cdn.pixabay.com/animation/2022/10/15/08/31/08-31-54-368_512.gif" className="sliderimg" alt="" />
             </AliceCarousel>

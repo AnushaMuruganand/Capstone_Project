@@ -114,7 +114,7 @@ function WeatherFullDetails({ weatherDetails, degree }) {
             </div>
             <br/>
             <div>
-                <a href="/weather/search" className="Weather-Back-Button">Go Back</a>
+                <a href="https://map-n-weather.netlify.app/weather/search" className="Weather-Back-Button">Go Back</a>
             </div>
             <br/>
         </div>

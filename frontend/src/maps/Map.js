@@ -111,7 +111,7 @@ function Map() {
                     </div>
                     <br/><br/>
                     <div>
-                        <a href="/maps/search" className="back-button">Go Back</a>
+                        <a href="https://map-n-weather.netlify.app/maps/search" className="back-button">Go Back</a>
                     </div>
                     <div>
                         {currentWeather ?

@@ -16,7 +16,7 @@ function MapInputPanel() {
             
             <div className="directionsContainer">
                 <div>
-                    <a href="/maps/search" className="Input-button">Go Back</a>
+                    <a href="https://map-n-weather.netlify.app/maps/search" className="Input-button">Go Back</a>
                 </div>
                 <br/>
                 <div id="directionsPanel"></div>
