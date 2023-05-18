@@ -2,6 +2,7 @@ import React from "react";
 
 import MapInputPanelView from "./MapInputPanelView";
 import "./MapInputPanel.css"
+import { useHistory } from "react-router-dom";
 
 /** Show page with the map.
  *
@@ -11,12 +12,18 @@ import "./MapInputPanel.css"
 
 function MapInputPanel() {
 
+    const history = useHistory();
+
+    function push() {
+        history.push("/maps/search");
+    }
+
     return (
         <div className="MapInputPanel">
             
             <div className="directionsContainer">
                 <div>
-                    <a href="https://map-n-weather.netlify.app/maps/search" className="Input-button">Go Back</a>
+                    <button onClick={push} className="Input-button">Go Back</button>
                 </div>
                 <br/>
                 <div id="directionsPanel"></div>

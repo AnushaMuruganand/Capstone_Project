@@ -86,6 +86,10 @@ function Map() {
         history.push("/maps/search/restaurants"); 
     }
 
+    function push() {
+        history.push("/maps/search");
+    }
+
     if (clicked) {
         return (
             <div>
@@ -111,7 +115,7 @@ function Map() {
                     </div>
                     <br/><br/>
                     <div>
-                        <a href="https://map-n-weather.netlify.app/maps/search" className="back-button">Go Back</a>
+                        <button onClick={push} className="back-button">Go Back</button>
                     </div>
                     <div>
                         {currentWeather ?
