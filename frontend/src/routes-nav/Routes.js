@@ -9,6 +9,7 @@ import WeatherLoginForm from "../auth/WeatherLoginForm";
 import WeatherSignupForm from "../auth/WeatherSignUpForm";
 import MapInputPanel from "../maps/MapInputPanel";
 import Weather from "../weather/Weather";
+import WeatherFullDetails from "../weather/WeatherFullDetails";
 
 /** Site-wide routes.
  * Visiting a non-existant route redirects to the homepage.
@@ -45,6 +46,10 @@ function Routes({login, signup}) {
 
                 <Route exact path="/weather/search">
                     <Weather/>
+                </Route>
+
+                <Route exact path="/weather/search/detail">
+                    <WeatherFullDetails/>
                 </Route>
   
                 <Route exact path="/weather/login">

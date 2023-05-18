@@ -81,6 +81,7 @@ function WeatherSearch() {
     function showFullDetails(weatherDetail){
         setClicked(true);
         setWeatherDetails(weatherDetail);
+        history.push("/weather/search/detail")
     }
 
     function showSlides() {
