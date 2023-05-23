@@ -29,40 +29,71 @@ class Map {
         return result.data.resourceSets[0].resources[0].value;
     }
 
+    // // Function to save the address the user searched into the database table "location_recents"
+    // static async saveAddress(address) {
+    //     // const preCheckAddress = await db.query(
+    //     //     `SELECT address
+    //     //     FROM location_recents
+    //     //     WHERE address = $1`, [address]
+    //     // );
+
+    //     const preCheckAddress = await db.select("address").from("location_recents").where("address", `${address}`);
+
+    //     const savedAddress = preCheckAddress;
+
+    //     if (savedAddress.length===0) {
+    //         // const result = await db.query(
+    //         //     `INSERT INTO location_recents
+    //         //     (address) VALUES ($1)`, [address]
+    //         // );
+
+    //         const result = await db("location_recents").insert({ address: `${address}` }).returning(["address"]);
+    //     }
+    // }
+
     // Function to save the address the user searched into the database table "location_recents"
     static async saveAddress(address) {
-        // const preCheckAddress = await db.query(
-        //     `SELECT address
-        //     FROM location_recents
-        //     WHERE address = $1`, [address]
-        // );
+        const preCheckAddress = await db.query(
+            `SELECT address
+            FROM location_recents
+            WHERE address = $1`, [address]
+        );
 
-        const preCheckAddress = await db.select("address").from("location_recents").where("address", `${address}`);
+        const savedAddress = preCheckAddress.rows[0];
 
-        const savedAddress = preCheckAddress;
-
-        if (savedAddress.length===0) {
-            // const result = await db.query(
-            //     `INSERT INTO location_recents
-            //     (address) VALUES ($1)`, [address]
-            // );
-
-            const result = await db("location_recents").insert({ address: `${address}` }).returning(["address"]);
+        if (!savedAddress) {
+            const result = await db.query(
+                `INSERT INTO location_recents
+                (address) VALUES ($1)`, [address]
+            );
         }
     }
 
-    // Function to get the list of recent addresses user searched from the database table "location_recents"
-    static async getRecentAddress() {
+    // // Function to get the list of recent addresses user searched from the database table "location_recents"
+    // static async getRecentAddress() {
 
-        // const result = await db.query(
-        //     `SELECT address
-        //     FROM location_recents ORDER BY id DESC LIMIT 5`
-        // );
+    //     // const result = await db.query(
+    //     //     `SELECT address
+    //     //     FROM location_recents ORDER BY id DESC LIMIT 5`
+    //     // );
 
-        const result = await db.select("address").from("location_recents").orderBy("id", "desc").limit(5);
+    //     const result = await db.select("address").from("location_recents").orderBy("id", "desc").limit(5);
 
-        const addresses = result;
+    //     const addresses = result;
     
+    //     return addresses;
+    // }
+
+     // Function to get the list of recent addresses user searched from the database table "location_recents"
+     static async getRecentAddress() {
+
+        const result = await db.query(
+            `SELECT address
+            FROM location_recents ORDER BY id DESC LIMIT 5`
+        );
+
+        const addresses = result.rows;
+
         return addresses;
     }
 
