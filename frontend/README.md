@@ -4,7 +4,7 @@ This is my Capstone project for UMASS Global Software Engineering Bootcamp. This
 
 ## Deployed Site
 
-Click here -> [Map and Weather App](https://map-n-weather.netlify.app/)
+Click here -> [Map and Weather App](https://map-and-weather.onrender.com)
 
 ## APIs used
 

@@ -33,21 +33,6 @@ class Weather {
     }
 
     // Function to get the list of recent locations user searched from the database table "weather_recents"
-    // static async getRecentLocation() {
-
-    //     // const result = await db.query(
-    //     //     `SELECT city,region,country
-    //     //     FROM weather_recents ORDER BY id DESC LIMIT 5`
-    //     // );
-
-    //     const result = await db.select(
-    //         "city", "region", "country").from("weather_recents").orderBy("id", "desc").limit(5);
-
-    //     const locations = result;
-    
-    //     return locations;
-    // }
-
     static async getRecentLocation() {
 
         const result = await db.query(
@@ -61,39 +46,6 @@ class Weather {
     }
 
     // Function to save the location the user searched into the database table "weather_recents"
-    // static async saveLocation(city,region,country) {
-    //     // const preCheckLocation = await db.query(
-    //     //     `SELECT city,region,country
-    //     //     FROM weather_recents
-    //     //     WHERE city = $1 AND region=$2 AND country = $3`, [city, region, country]
-    //     // );
-
-    //     const preCheckLocation = await db.select(
-    //         "city", "region", "country").from("weather_recents").where({
-    //             city: `${city}`,
-    //             region: `${region}`,
-    //             country: `${country}`
-    //         });
-
-    //     const savedLocation = preCheckLocation;
-
-    //     if (savedLocation.length===0) {
-    //         // const result = await db.query(
-    //         //     `INSERT INTO weather_recents
-    //         //     (city, region, country) VALUES ($1, $2, $3) RETURNING city`, [city, region, country]
-    //         // );
-
-    //         const result = await db("weather_recents").insert({
-    //             city: `${city}`,
-    //             region: `${region}`,
-    //             country: `${country}`
-    //         }).returning(["city"]);
-
-    //         return result[0];
-    //     }
-    //     else return "FOUND RESULT";
-    // }
-
     static async saveLocation(city,region,country) {
         const preCheckLocation = await db.query(
             `SELECT city,region,country
@@ -114,53 +66,6 @@ class Weather {
     }
 
     // Function to save the location the user searched into the database table "weather_reports if logged in for that user"
-    // static async saveUserWeatherLocation(city, region, country, username) {
-
-    //     // const user = await db.query(
-    //     //     `SELECT id FROM users
-    //     //     WHERE username = $1`, [username]
-    //     // );
-
-    //     const user = await db.select("id").from("users").where("username", `${username}`);
-
-    //     const userID = user[0].id;
-
-    //     // const preCheckLocation = await db.query(
-    //     //     `SELECT city,region,country
-    //     //     FROM weather_reports
-    //     //     WHERE city = $1 AND region=$2 AND country = $3 AND user_id = $4`, [city, region, country, userID]
-    //     // );
-
-    //     const preCheckLocation = await db.select(
-    //         "city", "region", "country").from("weather_reports").where({
-    //             city: `${city}`,
-    //             region: `${region}`,
-    //             country: `${country}`,
-    //             user_id: `${userID}`
-    //         });
-
-    //     const savedLocation = preCheckLocation;
-
-    //     if (savedLocation.length===0) {
-    //         // const result = await db.query(
-    //         //     `INSERT INTO weather_reports
-    //         //     (user_id, city, region, country) VALUES ($1, $2, $3, $4) RETURNING user_id, city`, [userID, city, region, country]
-    //         // );
-
-    //         const result = await db("weather_reports").insert({
-    //             user_id:`${userID}`,
-    //             city: `${city}`,
-    //             region: `${region}`,
-    //             country: `${country}`
-    //         }).returning(["user_id", "city"]);
-            
-    //         return result[0];
-    //     }
-    //     else {
-    //         return "ALREADY PRESENT";
-    //     }
-    // }
-    
     static async saveUserWeatherLocation(city, region, country, username) {
 
         const user = await db.query(
@@ -191,31 +96,6 @@ class Weather {
     }
 
     // Function to get all the locations user serached for from the database "weather_reports" if logged in
-    // static async getUserWeatherLocations(username) {
-    //     // const user = await db.query(
-    //     //     `SELECT id FROM users
-    //     //     WHERE username = $1`, [username]
-    //     // );
-
-    //     const user = await db.select("id").from("users").where("username", `${username}`);
-
-    //     const userID = user[0].id;
-
-
-    //     // const result = await db.query(
-    //     //     `SELECT city,region,country
-    //     //     FROM weather_reports
-    //     //     WHERE user_id = $1 ORDER BY id DESC`, [userID]
-    //     // );
-        
-    //     const result = await db.select(
-    //         "city", "region", "country").from("weather_reports").where("user_id", `${userID}`).orderBy("id", "desc");
-
-    //     const locations = result;
-
-    //     return locations;
-    // }
-
     static async getUserWeatherLocations(username) {
         const user = await db.query(
             `SELECT id FROM users
